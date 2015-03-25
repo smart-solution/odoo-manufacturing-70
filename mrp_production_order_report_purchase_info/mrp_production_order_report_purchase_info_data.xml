@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+    <record id="mrp.report_mrp_production_report" model="ir.actions.report.xml">
+        <field name="report_file">mrp_production_order_report_purchase_info/report/order.rml</field>
+         <field name="attachment_use" eval="False"/>
+    </record>
+
+    </data>
+</openerp>

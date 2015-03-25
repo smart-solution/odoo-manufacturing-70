@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+   <!--
+       mrp_production_order_report_purchase_info Views 
+   -->
+
+    <record model="ir.ui.view" id="view_stock_move_procurement_purchase_form">
+        <field name="name">view.stock.move.procurement.purchase.form</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+    		<field name="date_expected" position="after">
+    	    	<field name="purchase_id"/>
+            </field>
+        </field>
+    </record>
+
+    </data>
+</openerp>

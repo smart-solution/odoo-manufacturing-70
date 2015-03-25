@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+   <!--
+       mrp_bom_group_type Views 
+   -->
+    <record model="ir.ui.view" id="view_mrp_bom_grouptype_tree">
+        <field name="name">view.mrp_bom_grouptype.tree</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_tree_view"/>        
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <field name="product_qty" position="after">
+                <field name="grouptype_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_mrp_bom_grouptype_form">
+        <field name="name">view.mrp_bom_grouptype.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>        
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="grouptype_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_mrp_bom_group_type">
+        <field name="name">BoM Group Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.bom.grouptype</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="BoM Group Types " id="menu_mrp_bom_grouptype" parent="mrp.menu_mrp_configuration" action="action_mrp_bom_group_type" sequence="5"/>
+    <record model="ir.ui.view" id="view_mrp_bom_grouptype_search">
+        <field name="name">view.mrp_bom_grouptype.search</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.view_mrp_bom_filter"/>        
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@string='Type']" position="after">
+                        <filter string='Grouping Type' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'grouptype_id'}"/>
+            </xpath>
+        </field>
+        </record>
+
+    </data>
+</openerp>
